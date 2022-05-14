@@ -1,5 +1,6 @@
 import 'package:auth_app/auth_page.dart';
 import 'package:auth_app/utils.dart';
+import 'package:auth_app/verify_email_page.dart';
 import 'package:auth_app/widget/login_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -50,7 +51,7 @@ class MainPage extends StatelessWidget {
               child: Text("Something went wrong!"),
             );
           } else if (snapshot.hasData) {
-            return HomePage();
+            return VerifyEmailPage();
           } else {
             return AuthPage();
           }
