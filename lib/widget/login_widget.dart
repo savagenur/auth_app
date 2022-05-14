@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import 'forgot_password.dart';
+
 class LoginWidget extends StatefulWidget {
   final VoidCallback onClickedSignUp;
   const LoginWidget({
@@ -75,6 +77,18 @@ class _LoginWidgetState extends State<LoginWidget> {
               SizedBox(
                 height: 25,
               ),
+              GestureDetector(
+                child: Text(
+                  "Forgot Password?",
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    color: Theme.of(context).colorScheme.secondary,
+                    fontSize: 20,
+                  ),
+                ),
+                onTap: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ForgotPasswordPage())),
+              ),
+              SizedBox(height: 16,),
               RichText(
                   text: TextSpan(
                       style: TextStyle(color: Colors.white, fontSize: 18),
@@ -107,7 +121,7 @@ class _LoginWidgetState extends State<LoginWidget> {
           password: passwordController.text.trim());
     } on FirebaseAuthException catch (e) {
       print(e);
-      Utils.showSnackBar(e.message); 
+      Utils.showSnackBar(e.message);
     }
     navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }

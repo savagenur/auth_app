@@ -7,8 +7,12 @@ class Utils {
     final snackBar = SnackBar(
       content: Text(
         text,
+        style: TextStyle(
+          color: Colors.white
+        ),
       ),
       backgroundColor: Colors.red,
+      
     );
     messengerKey.currentState!
       ..removeCurrentSnackBar()
